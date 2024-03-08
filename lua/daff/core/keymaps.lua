@@ -1,5 +1,6 @@
 -- Set Leader
 vim.g.mapleader = " "
+local opts = { noremap=true, silent=true }
 
 -- Local Keymap
 local keymap = vim.keymap
@@ -26,8 +27,35 @@ keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 -- Delete Single Character
 keymap.set("n", "x", '"_x')
 
--- Window Spit
-keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" })
-keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally" })
-keymap.set("n", "<leader>se", "<C-w>=", { desc = "Make split windows equal width & height" })
-keymap.set("n", "<leader>sx", ":close<CR>", { desc = "Close current split window" })
+-- Select All
+keymap.set("n", "<C-a>", "gg<S-v>G", { desc = "Select all" })
+
+-- Delete a Line
+keymap.set("n", "dw", "vb_d", { desc = "Delete a line backward" })
+
+-- New Tab
+keymap.set("n", "te", ":tabedit<CR>", opts, { desc = "Open new tab" })
+keymap.set("n", "tc", ":tabclose<CR>", opts, { desc = "Close current tab" })
+keymap.set("n", "<tab>", ":tabnext<CR>", opts, { desc = "Next tab" })
+keymap.set("n", "<s-tab>", ":tabprevious<CR>", opts, { desc = "Previous tab" })
+
+-- Split Window
+keymap.set("n", "sv", ":vsplit<CR>", opts, { desc = "Split window vertically" })
+keymap.set("n", "ss", ":split<CR>", opts, { desc = "Split window horizontally" })
+
+-- Move Window
+keymap.set("n", "sh", "<C-w>h", { desc = "Go to left window" })
+keymap.set("n", "sl", "<C-w>l", { desc = "Go to right window" })
+keymap.set("n", "sk", "<C-w>k", { desc = "Go to upper window" })
+keymap.set("n", "sj", "<C-w>j", { desc = "Go to lower window" })
+
+-- Rezise Window
+keymap.set("n", "<C-w><up>", ":resize +2<CR>", { desc = "Increase window height" })
+keymap.set("n", "<C-w><down>", ":resize -2<CR>", { desc = "Decrease window height" })
+keymap.set("n", "<C-w><left>", ":vertical resize -2<CR>", { desc = "Decrease window width" })
+keymap.set("n", "<C-w><right>", ":vertical resize +2<CR>", { desc = "Increase window width" })
+
+-- Diagnostics 
+keymap.set("n", "<C-j>", function()
+  vim.diagnostic.goto_next()
+end, opts, { desc = "Next Diagnostic" })
