@@ -38,7 +38,7 @@ return{
         "bashls",
         "pyright",
         "rust_analyzer",
-         
+
       },
       --Auto Install Tools
       automatic_installation = true,
@@ -66,4 +66,4 @@ return{
       }
     })
   end
-} 
+}
