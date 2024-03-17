@@ -59,3 +59,9 @@ keymap.set("n", "<C-w><right>", ":vertical resize +2<CR>", { desc = "Increase wi
 keymap.set("n", "<C-j>", function()
   vim.diagnostic.goto_next()
 end, opts, { desc = "Next Diagnostic" })
+
+-- Comment
+keymap.set("n", "<leader>/", function ()
+  require("Comment.api").toggle.linewise.current()
+end, opts, { desc = "Comment Line" })
+
