@@ -46,6 +46,8 @@ return {
       },
       --mappings
       mapping = cmp.mapping.preset.insert({
+      -- Confirm false
+        ["<CR>"] = cmp.mapping.confirm({ select = false }),
 
       -- Tab
         ["<Tab>"] = cmp.mapping(function(fallback)

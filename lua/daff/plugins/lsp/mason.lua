@@ -34,6 +34,7 @@ return{
         "cssls",
         "jsonls",
         "tailwindcss",
+        "astro",
         --System
         "bashls",
         "pyright",
@@ -55,14 +56,12 @@ return{
         "eslint",
         "black",
         "pyright",
-        "rustfmt",
         "rust_analyzer",
         "lua-language-server",
         "css-lsp",
         "html-lsp",
         "json-lsp",
         "markdownlint",
-
       }
     })
   end

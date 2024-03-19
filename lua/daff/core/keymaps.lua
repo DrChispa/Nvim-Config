@@ -1,6 +1,6 @@
 -- Set Leader
 vim.g.mapleader = " "
-local opts = { noremap=true, silent=true }
+local opts = { noremap = true, silent = true }
 
 -- Local Keymap
 local keymap = vim.keymap
@@ -55,13 +55,17 @@ keymap.set("n", "<C-w><down>", ":resize -2<CR>", { desc = "Decrease window heigh
 keymap.set("n", "<C-w><left>", ":vertical resize -2<CR>", { desc = "Decrease window width" })
 keymap.set("n", "<C-w><right>", ":vertical resize +2<CR>", { desc = "Increase window width" })
 
--- Diagnostics 
+-- Diagnostics
 keymap.set("n", "<C-j>", function()
-  vim.diagnostic.goto_next()
+	vim.diagnostic.goto_next()
 end, opts, { desc = "Next Diagnostic" })
 
--- Comment
-keymap.set("n", "<leader>/", function ()
-  require("Comment.api").toggle.linewise.current()
-end, opts, { desc = "Comment Line" })
+-- Conform Format
+keymap.set("n", "<leader>fm", function()
+	require("conform").format({ async = true, lsp_fallback = true })
+end, { desc = "Conform Format" })
 
+-- Comment
+keymap.set("n", "<leader>/", function()
+	require("Comment.api").toggle.linewise.current()
+end, opts, { desc = "Comment Line" })

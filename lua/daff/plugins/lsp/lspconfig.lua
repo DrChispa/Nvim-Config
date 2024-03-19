@@ -85,6 +85,70 @@ return {
       },
     })
 
+    -- LSP Configs servers
+
+    -- html lps
+    lspconfig["html"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+
+    -- Eslint lsp
+    lspconfig["eslint"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+
+    -- Astro lsp
+    lspconfig["astro"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+      filetypes = { "astro" }
+    })
+
+    -- tsserver lsp
+    lspconfig["tsserver"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+
+    -- tailwindcss lsp
+    lspconfig["tailwindcss"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+
+    -- css lsp
+    lspconfig["cssls"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+
+    -- json lsp
+    lspconfig["jsonls"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+
+    -- bash lsp
+    lspconfig["bashls"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+
+    -- rust_analyzer lsp
+    lspconfig["rust_analyzer"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+
+    -- pyright lsp
+    lspconfig["pyright"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+
+
     -- Change Diagnostic Signs
     local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
     for type, icon in pairs(signs) do
