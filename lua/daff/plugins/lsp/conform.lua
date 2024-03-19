@@ -4,7 +4,7 @@ return {
 		formatters_by_ft = {
 			lua = { "stylua" },
 			javascript = { "eslint_d" },
-			astro = { "prettier" },
+			astro = { "prettier", "eslint_d" },
 			typescript = { "eslint_d" },
 			python = { "black" },
 			css = { "prettier" },
