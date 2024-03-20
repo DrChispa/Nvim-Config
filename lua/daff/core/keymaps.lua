@@ -68,4 +68,23 @@ end, { desc = "Conform Format" })
 -- Comment
 keymap.set("n", "<leader>/", function()
 	require("Comment.api").toggle.linewise.current()
-end, opts, { desc = "Comment Line" })
+end, opts, { desc = "Comment line" })
+
+--bufferline
+keymap.set("n", "<leader>b", "<cmd> enew <CR>", { desc = "New buffer" })
+keymap.set("n", "<S-l>", "<cmd> bnext <CR>", { desc = "Next buffer" })
+keymap.set("n", "<S-h>", "<cmd> bprevious <CR>", { desc = "Previous buffer" })
+keymap.set("n", "<leader>x", "<cmd> bdelete <CR>", { desc = "Delete buffer" })
+
+-- New Terminal
+keymap.set("n", "<leader>h", function()
+	require("nvterm.terminal").new("horizontal")
+end, { desc = "Toggle horizontal terminal" })
+-- Toggle Terminal
+keymap.set("t", "<A-h>", function()
+	require("nvterm.terminal").toggle("horizontal")
+end, { desc = "Toggle horizontal from terminal" })
+-- Toggle from Normal
+keymap.set("n", "<A-h>", function()
+	require("nvterm.terminal").toggle("horizontal")
+end, { desc = "Toggle horizontal from terminal" })
