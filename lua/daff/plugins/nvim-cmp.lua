@@ -9,6 +9,7 @@ return {
 		"rafamadriz/friendly-snippets", -- useful snippets
 		"onsails/lspkind.nvim", -- vs-code like pictograms
 		"hrsh7th/cmp-nvim-lsp", -- LSP source for nvim-cmp
+		"hrsh7th/nvim-cmp", -- LSP source for nvim-cmp
 	},
 	config = function()
 		local cmp = require("cmp")
@@ -47,6 +48,17 @@ return {
 			mapping = cmp.mapping.preset.insert({
 				-- Confirm false
 				["<CR>"] = cmp.mapping.confirm({ select = false }),
+
+				-- S-tab
+				["<S-Tab>"] = cmp.mapping(function(fallback)
+					if cmp.visible() then
+						cmp.select_prev_item()
+					elseif require("luasnip").jumpable(-1) then
+						vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Plug>luasnip-jump-prev", true, true, true), "")
+					else
+						fallback()
+					end
+				end, { "i", "s" }),
 
 				-- Tab
 				["<Tab>"] = cmp.mapping(function(fallback)

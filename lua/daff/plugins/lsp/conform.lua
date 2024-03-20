@@ -5,7 +5,7 @@ return {
 			lua = { "stylua" },
 			javascript = { "eslint_d" },
 			astro = { "prettier", "eslint_d" },
-			typescript = { "eslint_d" },
+			typescript = { "prettier", "eslint_d" },
 			python = { "black" },
 			css = { "prettier" },
 			html = { "prettier" },
