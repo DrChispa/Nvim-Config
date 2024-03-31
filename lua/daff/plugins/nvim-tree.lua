@@ -14,28 +14,43 @@ return {
 
 		-- configure nvim-tree
 		nvimtree.setup({
-			-- nvchad options
+			-- Setup
 			disable_netrw = true,
-			hijack_netrw = true,
 			hijack_cursor = true,
+			hijack_netrw = true,
 			hijack_unnamed_buffer_when_opening = false,
 			sync_root_with_cwd = true,
+			open_on_tab = true,
+			update_cwd = true,
 			update_focused_file = {
 				enable = true,
 				update_root = false,
 			},
-			-- Configs
+			--Diagnostics
+			diagnostics = {
+				enable = true,
+				icons = {
+					hint = "",
+					info = "",
+					warning = "",
+					error = "",
+				},
+			},
+			-- View Configs
 			view = {
 				adaptive_size = false,
 				side = "left",
 				width = 30,
-				preserve_window_proportions = true,
+				preserve_window_proportions = false,
+				number = false,
+				signcolumn = "yes",
 			},
 			-- change folder arrow icons
 			renderer = {
 				indent_markers = {
 					enable = true,
 				},
+				-- Icons
 				icons = {
 					show = {
 						file = true,
@@ -43,7 +58,6 @@ return {
 						folder_arrow = true,
 						git = false,
 					},
-
 					glyphs = {
 						default = "󰈚",
 						symlink = "",
@@ -69,6 +83,10 @@ return {
 					},
 				},
 			},
+			--Git Options
+			git = {
+				ignore = false,
+			},
 			-- disable window_picker for
 			-- explorer to work well with
 			-- window splits
@@ -83,10 +101,6 @@ return {
 			filters = {
 				custom = { ".DS_Store" },
 			},
-			git = {
-				enable = false,
-				ignore = false,
-			},
 		})
 
 		-- set keymaps
@@ -94,7 +108,7 @@ return {
 
 		--tree focus
 		keymap.set("n", "<leader>ef", "<cmd>NvimTreeFocus<CR>", { desc = "Focus file explorer" })
-		keymap.set("n", "<leader>ee", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle file explorer" }) -- toggle file explorer
+		keymap.set("n", "<leader>ee", "<cmd>NvimTreeOpen<CR>", { desc = "Open the exploerer" }) -- toggle file explorer
 		keymap.set(
 			"n",
 			"<leader>en",

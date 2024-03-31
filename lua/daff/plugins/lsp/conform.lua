@@ -11,9 +11,11 @@ return {
 			html = { "prettier" },
 			json = { "prettier" },
 			markdown = { "markdownlint" },
+			cpp = { "clang-format" },
+			c = { "clang-format" },
 		},
 		format_on_save = {
-			timeout_ms = 1500,
+			timeout_ms = 1000,
 			lsp_fallback = true,
 		},
 		format_after_save = {

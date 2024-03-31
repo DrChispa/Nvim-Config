@@ -8,8 +8,11 @@ local keymap = vim.keymap
 -- jk To Escape
 keymap.set("i", "jk", "<ESC>", { desc = "Escape to normal mode" })
 
+-- Clear Seach Highlits
+keymap.set("n", "<Esc>", ":nohl<CR>", { desc = "Clear search highlights" })
+
 -- Begin and End
-keymap.set("i", "<C-b>", "ESC^i", { desc = "Begin of line" })
+keymap.set("i", "<C-b>", "<ESC>^i", { desc = "Begin of line" })
 keymap.set("i", "<C-e>", "<End>", { desc = "End of line" })
 
 -- Nav in InsertMode
@@ -19,10 +22,7 @@ keymap.set("i", "<C-k>", "<Up>", { desc = "Up" })
 keymap.set("i", "<C-l>", "<Right>", { desc = "Right" })
 
 -- Save
-keymap.set("n", "<C-s>", ":w<CR>", { desc = "Save file" })
-
--- Clear Search
-keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
+keymap.set("n", "<C-s>", "<cmd>w<CR>", { desc = "Save file" })
 
 -- Delete Single Character
 keymap.set("n", "x", '"_x')

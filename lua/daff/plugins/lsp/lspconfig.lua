@@ -139,6 +139,13 @@ return {
 		lspconfig["rust_analyzer"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
+			filetypes = { "rust" },
+			root_dir = lspconfig.util.root_pattern("Cargo.toml"),
+			settings = {
+				cargo = {
+					allFeatures = true,
+				},
+			},
 		})
 
 		-- pyright lsp
@@ -147,6 +154,23 @@ return {
 			on_attach = on_attach,
 		})
 
+		-- clangd lsp
+		lspconfig["clangd"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+			filetypes = { "h", "c", "cpp", "cc", "objc", "objcpp" },
+			cmd = { "clangd", "--background-index" },
+			single_file_support = true,
+			root_dir = lspconfig.util.root_pattern(
+				".clangd",
+				".clang-tidy",
+				".clang-format",
+				"compile_commands.json",
+				"compile_flags.txt",
+				"configure.ac",
+				".git"
+			),
+		})
 		-- Change Diagnostic Signs
 		local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
 		for type, icon in pairs(signs) do
