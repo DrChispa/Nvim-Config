@@ -35,6 +35,7 @@ return {
 				"jsonls",
 				"tailwindcss",
 				"astro",
+				"intelephense",
 				--System
 				"clangd",
 				"bashls",
@@ -64,6 +65,7 @@ return {
 				"json-lsp",
 				"markdownlint",
 				"clang-format",
+				"pretty-php",
 			},
 		})
 	end,

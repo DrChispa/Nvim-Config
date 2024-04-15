@@ -5,6 +5,9 @@ local opts = { noremap = true, silent = true }
 -- Local Keymap
 local keymap = vim.keymap
 
+-- Reload Config
+keymap.set("n", "<leader>rl", ":source %<CR>", { desc = "Reload config" })
+
 -- jk To Escape
 keymap.set("i", "jk", "<ESC>", { desc = "Escape to normal mode" })
 
@@ -22,7 +25,7 @@ keymap.set("i", "<C-k>", "<Up>", { desc = "Up" })
 keymap.set("i", "<C-l>", "<Right>", { desc = "Right" })
 
 -- Save
-keymap.set("n", "<C-s>", "<cmd>w<CR>", { desc = "Save file" })
+keymap.set("n", "<C-s>", "<cmd>w<CR>", opts, { desc = "Save file" })
 
 -- Delete Single Character
 keymap.set("n", "x", '"_x')
@@ -68,7 +71,7 @@ end, { desc = "Conform Format" })
 -- Comment
 keymap.set("n", "<leader>/", function()
 	require("Comment.api").toggle.linewise.current()
-end, opts, { desc = "Comment line" })
+end, { desc = "Comment line" })
 
 --bufferline
 keymap.set("n", "<leader>b", "<cmd> enew <CR>", { desc = "New buffer" })
@@ -80,11 +83,18 @@ keymap.set("n", "<leader>x", "<cmd> bdelete <CR>", { desc = "Delete buffer" })
 keymap.set("n", "<leader>h", function()
 	require("nvterm.terminal").new("horizontal")
 end, { desc = "Toggle horizontal terminal" })
+
 -- Toggle Terminal
 keymap.set("t", "<A-h>", function()
 	require("nvterm.terminal").toggle("horizontal")
 end, { desc = "Toggle horizontal from terminal" })
+
 -- Toggle from Normal
 keymap.set("n", "<A-h>", function()
 	require("nvterm.terminal").toggle("horizontal")
 end, { desc = "Toggle horizontal from terminal" })
+
+-- Cargo Run Terminal
+keymap.set("n", "<leader>cr", function()
+	require("nvterm.terminal").send("cargo run", "horizontal")
+end, { desc = "Cargo Run Terminal" })

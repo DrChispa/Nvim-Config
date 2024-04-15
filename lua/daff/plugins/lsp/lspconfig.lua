@@ -142,6 +142,9 @@ return {
 			filetypes = { "rust" },
 			root_dir = lspconfig.util.root_pattern("Cargo.toml"),
 			settings = {
+				diagnostics = {
+					update_in_insert = true,
+				},
 				cargo = {
 					allFeatures = true,
 				},
@@ -170,6 +173,29 @@ return {
 				"configure.ac",
 				".git"
 			),
+		})
+
+		-- PHP
+		lspconfig["intelephense"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+			filetypes = { "php" },
+			cmd = { "intelephense", "--stdio" },
+			root_dir = lspconfig.util.root_pattern(
+				"composer.json",
+				"package.json",
+				"Makefile",
+				"phpstan.neon",
+				"psalm.xml",
+				"psalm.xml.dist"
+			),
+			settings = {
+				intelephense = {
+					files = {
+						maxSize = 5000000,
+					},
+				},
+			},
 		})
 		-- Change Diagnostic Signs
 		local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
