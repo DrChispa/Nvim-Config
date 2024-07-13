@@ -98,3 +98,6 @@ end, { desc = "Toggle horizontal from terminal" })
 keymap.set("n", "<leader>cr", function()
 	require("nvterm.terminal").send("cargo run", "horizontal")
 end, { desc = "Cargo Run Terminal" })
+
+-- Main C function snippet
+keymap.set("i", "<C-f>", require("daff.snippets.c").snippet, { desc = "C function snippet" })

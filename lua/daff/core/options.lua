@@ -4,6 +4,12 @@ local opt = vim.opt
 opt.relativenumber = true
 opt.number = true
 
+-- File Encoder
+opt.fileencoding = "utf-8"
+
+-- Mouse
+opt.mouse = "a"
+
 --Indent & tabs
 opt.tabstop = 2
 opt.shiftwidth = 2
@@ -11,11 +17,13 @@ opt.expandtab = true
 opt.autoindent = true
 
 --Line wrapping
-opt.wrap = false
+opt.wrap = true
 
 --Search
 opt.ignorecase = true
 opt.smartcase = true
+opt.hlsearch = false
+opt.incsearch = true
 
 --Cursor line
 opt.cursorline = true
@@ -34,6 +42,10 @@ opt.clipboard:append("unnamedplus")
 --split
 opt.splitright = true
 opt.splitbelow = true
+
+--scroll
+opt.scrolloff = 10
+opt.sidescrolloff = 10
 
 --Is Word
 opt.iskeyword:append("-")
